@@ -1,0 +1,54 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffa200;
+    color: white;
+    height: 600px;
+  }
+  
+  .content {
+    flex: 1;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .contactButton {
+    background-color: white;
+    color: #ffa200;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden; /* Memotong bagian gambar yang keluar */
+    position: relative;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
+  .image img {
+    width: 150%; /* Perbesar gambar untuk crop bagian samping */
+    height: 100%; /* Pastikan tinggi gambar sesuai dengan container */
+    object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+  }
+  
+  

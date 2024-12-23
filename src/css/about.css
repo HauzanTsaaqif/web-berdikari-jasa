@@ -1,0 +1,89 @@
+.about-page {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 10px 150px;
+}
+
+.about-content {
+  padding: 0rem 1rem;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: left;
+  display: grid;
+  color: #b3b3b3;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+.highlight{
+    color: #000;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.section-text{
+    text-align: justify;
+    margin: 20px 0px;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom dengan lebar yang sama */
+  grid-template-rows: 100px 300px 100px; /* Tinggi baris berbeda (baris 1, 2, dan 3) */
+  gap: 10px; /* Jarak antar gambar */
+}
+
+.custom-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Menjaga gambar tetap di dalam container */
+}
+
+.image-grid .custom-image-wrapper:nth-child(1) {
+    grid-row: span 2; /* Mengambil 2 baris untuk kolom pertama */
+}
+
+.image-grid .custom-image-wrapper:nth-child(2) {
+grid-row: span 1; /* Mengambil 1 baris untuk kolom kedua */
+}
+
+.image-grid .custom-image-wrapper:nth-child(3) {
+grid-row: span 2; /* Mengambil 3 baris untuk kolom ketiga */
+}
+
+.image-grid .custom-image-wrapper:nth-child(4) {
+grid-row: span 3; /* Mengambil 2 baris untuk kolom keempat */
+}
+
+.image-grid .custom-image-wrapper:nth-child(5) {
+grid-row: span 2; /* Mengambil 1 baris untuk kolom kelima */
+}
+.image-grid .custom-image-wrapper:nth-child(6) {
+grid-row: span 2; /* Mengambil 1 baris untuk kolom kelima */
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Agar gambar tetap proporsional */
+}
+
+
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
