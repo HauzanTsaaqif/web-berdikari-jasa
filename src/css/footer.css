@@ -1,0 +1,40 @@
+/* Footer Container */
+.footer {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 50px;
+    margin-top: 70px;
+  }
+  
+  .footer-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .company-name {
+    font-size: 1.5rem;
+    color: #ff8300;
+    margin: 0;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #555;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    color: #bbb;
+  }
+  

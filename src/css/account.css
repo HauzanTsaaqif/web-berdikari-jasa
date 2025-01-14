@@ -1,0 +1,110 @@
+/* Styling untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  table thead tr {
+    background-color: #4CAF50;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  table th, table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+  }
+  
+  table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  table tbody td .view-password-btn,
+  table tbody td button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  table tbody td .view-password-btn:hover,
+  table tbody td button:hover {
+    background-color: #45a049;
+  }
+  
+  .add-account-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .add-account-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling untuk form */
+  .account-form {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-form h4 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .account-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .account-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .account-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .account-form button[type="button"] {
+    background-color: #f44336;
+  }
+  
+  .account-form button[type="button"]:hover {
+    background-color: #d32f2f;
+  }
+  

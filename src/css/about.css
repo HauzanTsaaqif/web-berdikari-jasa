@@ -5,8 +5,11 @@
   padding: 10px 150px;
 }
 
+
+
 .about-content {
-  padding: 0rem 1rem;
+  padding: 0rem 3rem;
+  background-color: #f9f9f9;
 }
 
 .about-title {
@@ -15,7 +18,6 @@
   margin-bottom: 1rem;
   text-align: left;
   display: grid;
-  color: #b3b3b3;
   font-size: 40px;
   line-height: 40px;
   font-weight: 600;
@@ -86,4 +88,84 @@ grid-row: span 2; /* Mengambil 1 baris untuk kolom kelima */
   .image-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Kontak Section */
+.section-content {
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ff8300;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-link {
+  color: #ff8300;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.map-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.map-container {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+/* Ikon */
+.contact-info i {
+  color: #ff8300;
+  font-size: 1.2rem;
+  color: #b3b3b3;
+}
+
+.footer {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 150px;
+}
+
+.footer-content {
+  padding: 2rem;
+  background-color: #333;
+  color: #fff;
 }

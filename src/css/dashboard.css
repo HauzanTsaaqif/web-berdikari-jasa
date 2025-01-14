@@ -1,0 +1,187 @@
+h4{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.dashboard {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8300;
+    padding: 0.5rem 1rem;
+    color: white;
+  }
+  
+  .navbar-time {
+    font-size: 1.2rem;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+/* Sidebar styling */
+.sidebar {
+    min-height: 100vh; /* Sidebar otomatis memanjang sesuai konten */
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Tetap di tempat saat scroll */
+    transition: width 0.3s ease;
+    width: 25%;
+  }
+  
+  .sidebar.closed {
+    width: 60px; /* Lebar sidebar saat ditutup */
+    overflow: hidden; /* Sembunyikan konten yang melewati lebar */
+  }
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .sidebar-company {
+    font-weight: 900;
+    font-size: 20px;
+    white-space: nowrap; /* Jangan pecah teks */
+    overflow: hidden; /* Sembunyikan teks saat sidebar ditutup */
+    text-overflow: ellipsis;
+  }
+  
+  .sidebar-logo {
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Isi ruang antara header dan logout */
+  }
+  
+  .sidebar-menu li {
+    padding: 0.5rem 1rem;
+  }
+  
+  .sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar-menu li a:hover {
+    background-color: #444; /* Warna hover */
+    color: #ff8300; /* Warna teks saat hover */
+  }
+  
+  .sidebar-logout {
+    margin: 1rem; /* Tambahkan jarak di sekitar tombol logout */
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sidebar-logout:hover {
+    background-color: #d11a1a; /* Warna hover tombol logout */
+    transform: scale(1.05); /* Efek zoom */
+  }
+  
+  .admin-pages {
+    margin-left: 25%; /* Sesuaikan margin dengan lebar sidebar */
+    transition: margin-left 0.3s ease;
+    width: 75%;
+  }
+  
+  .sidebar.closed ~ .admin-pages {
+    margin-left: 60px;
+    width: 100%;
+  }
+  .sidebar.open ~ .pie-chart {
+    width: 35%;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8300;
+    padding: 0.5rem 1rem;
+    color: white;
+  }
+  
+  /* Content styling */
+  .main-content {
+    flex: 1;
+    background-color: #fbe7b6;
+    padding: 2rem;
+  }
+  
+  .dashboard-content {
+    display: flex;
+    flex-direction: column; /* Ubah dari row ke column */
+    gap: 1.5rem;
+  }
+  
+  .charts-section {
+    display: flex;
+    flex-direction: row; /* Pastikan charts tetap sejajar secara horizontal */
+    gap: 2rem;
+  }
+
+  .bar-chart{
+    background-color: white;
+    padding: 10px;
+    width: 65%;
+    border-radius: 10px;
+  }
+  .pie-chart{
+    background-color: white;
+    padding: 10px;
+    width: 35%;
+    border-radius: 10px;
+  }
+  
+  .table-section {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem; /* Jarak antara tabel dan chart */
+    width: 100%; /* Lebar tabel mengikuti container */
+  }
+  
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }

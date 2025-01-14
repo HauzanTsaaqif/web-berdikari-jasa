@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { db } from '../FirebaseConfig'; // import konfigurasi Firebase
+import { doc, getDoc } from 'firebase/firestore';
 import '../css/services.css'
 
 const services = [
@@ -11,17 +13,57 @@ const services = [
 ];
 
 const Services = () => {
+
+  const [ser_title, setSerTitle] = useState(null);
+  const [ser_desc, setSerDesc] = useState(null);
+  const [ser_img, setSerImg] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const titleRef = doc(db, 'web-data', 'service-title');
+      const titleSnap = await getDoc(titleRef);
+      const descRef = doc(db, 'web-data', 'service-desc');
+      const descSnap = await getDoc(descRef);
+      const imgRef = doc(db, 'web-data', 'service-img');
+      const imgSnap = await getDoc(imgRef);
+
+      if (titleSnap.exists()) {
+        setSerTitle(titleSnap.data());
+      } else {
+        console.log('No such document!');
+      }
+      if (descSnap.exists()) {
+        setSerDesc(descSnap.data());
+      } else {
+        console.log('No such document!');
+      }
+      if (imgSnap.exists()) {
+        setSerImg(imgSnap.data());
+      } else {
+        console.log('No such document!');
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className='services'>
-      <h2>Layanan</h2>
+      <h2 id='layanan_page'>Layanan</h2>
       <div className='serviceGrid'>
-        {services.map((service, index) => (
-          <div key={index} className='card'>
-            <img src={service.image} alt={service.title} />
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-          </div>
-        ))}
+
+        {ser_title ? (
+            Object.entries(ser_title).map(([key, faq], index) => (
+              <div key={index} className='card'>
+                <img src={ser_img[key]} alt={ser_title[key]} />
+                <h3>{ser_title[key]}</h3>
+                <p>{ser_desc[key]}</p>
+              </div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+
       </div>
     </section>
   );

@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .dashboard {
+    display: flex;
+  }
+  .edit_gallery{
+    width: 10%;
+  }
+  .question_table textarea{
+    width: 100%;
+  }
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  /* Forms */
+  .account-form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #555;
+  }
+  .account-form h3 {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .account-form input[type="text"],
+  .account-form input[type="email"],
+  .account-form textarea,
+  .account-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .preview-logo, .gallery-preview {
+    max-width: 100px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .preview-hero{
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .about_textarea{
+    width: 100%;
+  }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background: #4CAF50;
+    color: #fff;
+  }
+  
+  td {
+    background: #f9f9f9;
+  }
+  
+  tr:nth-child(even) td {
+    background: #f4f4f4;
+  }
+  
+  tr:hover td {
+    background: #e8f5e9;
+  }
+  
+  button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #45a049;
+  }
+  
+  .update-button {
+    display: inline-block;
+    margin: 20px 0 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #FF8300;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update-button:hover {
+    background: #ff9800;
+  }
+  

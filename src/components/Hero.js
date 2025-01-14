@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/hero.css';
+import { db } from '../FirebaseConfig'; // import konfigurasi Firebase
+import { doc, getDoc } from 'firebase/firestore';
 
 const Hero = () => {
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, 'web-data', 'web-info'); // Koleksi dan dokumen
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+        console.log(docSnap.data());
+      } else {
+        console.log('No such document!');
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className='hero'>
       <div className='content'>
-        <h1>JASA PENGURUSAN SURAT KENDARAAN, BERMOTOR, CLEANING SERVICE & SECURITY</h1>
+        <h1>{data ? data['heroTitle'] : ""}</h1>
         <p>
-          PT. BERDIKARI JASA PRIMA dengan tenaga ahli dan profesional dapat memberikan solusi
-          dalam hal pengurusan surat kendaraan bermotor dengan resmi, aman, dan cepat.
+        {data ? data['heroSubtitle'] : ""}
         </p>
         <button className='contactButton'>Contact Person</button>
       </div>
       <div className='image'>
         <img
-          src={`${process.env.PUBLIC_URL}/img/hero.png`} // Ganti dengan URL atau path gambar Anda
+          src={data ? data['heroImage'] : ""} // Ganti dengan URL atau path gambar Anda
           alt='Ilustrasi Jasa Pengurusan'
         />
       </div>
