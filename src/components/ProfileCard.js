@@ -63,7 +63,7 @@ const ProfileCard = () => {
     return <div>Loading...</div>;
   }
 
-  const handleAttendance = () => {
+  const handleAttendance = async () => {
     const isWithinCompanyArea = Math.random() > 0.5; // Simulasi area perusahaan
 
     if (isWithinCompanyArea) {
@@ -71,8 +71,9 @@ const ProfileCard = () => {
     } else {
       setAttendanceMessage("Absensi gagal! Anda tidak berada di area perusahaan.");
     }
+    
 
-    setTimeout(() => setAttendanceMessage(""), 3000); // Reset pesan
+    setTimeout(() => setAttendanceMessage(""), 3000);
   };
 
   return (

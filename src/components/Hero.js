@@ -4,7 +4,6 @@ import { db } from '../FirebaseConfig'; // import konfigurasi Firebase
 import { doc, getDoc } from 'firebase/firestore';
 
 const Hero = () => {
-
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ const Hero = () => {
 
       if (docSnap.exists()) {
         setData(docSnap.data());
-        console.log(docSnap.data());
       } else {
         console.log('No such document!');
       }
@@ -26,16 +24,14 @@ const Hero = () => {
   return (
     <section className='hero'>
       <div className='content'>
-        <h1>{data ? data['heroTitle'] : ""}</h1>
-        <p>
-        {data ? data['heroSubtitle'] : ""}
-        </p>
-        <button className='contactButton'>Contact Person</button>
+        <h1>{data ? data['heroTitle'] : "Selamat Datang di Website Kami"}</h1>
+        <p>{data ? data['heroSubtitle'] : "Solusi terbaik untuk kebutuhan Anda."}</p>
+        <button className='contactButton'>Hubungi Kami</button>
       </div>
       <div className='image'>
         <img
-          src={data ? data['heroImage'] : ""} // Ganti dengan URL atau path gambar Anda
-          alt='Ilustrasi Jasa Pengurusan'
+          src={data ? data['heroImage'] : "https://via.placeholder.com/800x600"}
+          alt='Ilustrasi Hero'
         />
       </div>
     </section>

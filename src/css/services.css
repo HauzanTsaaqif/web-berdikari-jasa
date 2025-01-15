@@ -1,45 +1,94 @@
 .services {
-    padding: 50px 150px;
-    background-color: #f9f9f9;
-  }
-  
+  padding: 50px 150px; /* Kurangi padding untuk layar kecil */
+  background-color: #f9f9f9;
+}
+
 .services h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #ffa200;
   font-size: 36px;
   line-height: 40px;
-  font-weight: 500;
+  font-weight: 600;
 }
-  
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; /* Kurangi gap untuk estetika */
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi hover */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Naik saat hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin-top: 15px;
+  color: #ffa200;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsivitas */
+@media (max-width: 1024px) {
   .serviceGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk tablet */
+    gap: 20px;
   }
-  
+
+  .services h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceGrid {
+    grid-template-columns: 1fr; /* 1 kolom untuk smartphone */
+    gap: 20px;
+  }
+
+  .services {
+    padding: 30px 10px; /* Kurangi padding untuk layar kecil */
+  }
+
+  .services h2 {
+    font-size: 2rem;
+    line-height: 28px;
+  }
+
   .card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
   }
-  
-  .card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
+
   .card h3 {
-    margin-top: 15px;
-    color: #ffa200;
+    font-size: 1.3rem;
   }
-  
+
   .card p {
-    color: #666;
+    font-size: 1rem;
   }
-  
+}

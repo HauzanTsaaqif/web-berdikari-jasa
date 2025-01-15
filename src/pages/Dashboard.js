@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { collection, doc, getDocs, setDoc, updateDoc, getDoc } from 'firebase/firestore';
 import { db } from '../FirebaseConfig';
 import { Pie, Bar } from "react-chartjs-2";
@@ -12,12 +12,19 @@ const Dashboard = () => {
   const [infoWeb, setInfoWeb] = useState(null);
   const location = useLocation();
   const username = location.state?.username;
+  const navigate = useNavigate(); // Hook untuk navigasi
 
-  if (username === undefined){
-    console.log("iniiii", username);
-  }else{
-    console.log("laah");
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      if (username === undefined){
+        console.log("iniiii", username);
+      }else{
+        console.log("laah");
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

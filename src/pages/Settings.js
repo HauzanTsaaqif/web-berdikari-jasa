@@ -140,15 +140,20 @@ const Settings = () => {
   };
 
   const handleServiceUpdate = async (key, field, value, type) => {
-    console.log("Key:", key, "Field:", field, "Value:", value.target.files[0]);
-    if (type === 4){
+    if (type === 4) {
+      if (!value.target || !value.target.files || !value.target.files[0]) {
+        console.error("File input is invalid or not provided.");
+        alert("Please select a valid file.");
+        return;
+      }
+  
+      console.log("Key:", key, "Field:", field, "File:", value.target.files[0]);
       try {
         const uploadPromises = Object.entries(serviceData[4]).map(
           async ([keyFile, file]) => {
-            if (Number(keyFile) === key){
+            if (Number(keyFile) === key) {
               const response = await uploadImage(value.target.files[0], key);
-              console.log(keyFile, "aaa", response);
-              setServiceData(prevData => ({
+              setServiceData((prevData) => ({
                 ...prevData,
                 [type]: {
                   ...prevData[type],
@@ -159,13 +164,14 @@ const Settings = () => {
           }
         );
   
+        await Promise.all(uploadPromises); // Tunggu semua upload selesai
         alert("All images uploaded successfully!");
       } catch (error) {
         console.error("Error uploading images:", error);
         alert("Failed to upload images.");
       }
-    }else{
-      setServiceData(prevData => ({
+    } else {
+      setServiceData((prevData) => ({
         ...prevData,
         [type]: {
           ...prevData[type],
@@ -173,8 +179,8 @@ const Settings = () => {
         },
       }));
     }
-    console.log(serviceData);
   };
+  
   
 
   const desctructID = (text) =>{
@@ -326,7 +332,7 @@ const Settings = () => {
               <input type="text" name="companyAddress" value={formData.companyAddress} onChange={handleInputChange} />
 
               <label>Email Perusahaan</label>
-              <input type="email" name="companyEmail" value={formData.email} onChange={handleInputChange} />
+              <input type="email" name="companyEmail" value={formData.companyEmail} onChange={handleInputChange} />
 
               <label>Koordinat</label>
               <input type="text" name="coordinates" value={formData.coordinates} onChange={handleInputChange} />

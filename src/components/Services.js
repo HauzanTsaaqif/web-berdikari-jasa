@@ -49,7 +49,7 @@ const Services = () => {
 
   return (
     <section className='services'>
-      <h2 id='layanan_page'>Layanan</h2>
+      <h2 id='layanan_page'>Layanan Kami</h2>
       <div className='serviceGrid'>
 
         {ser_title ? (

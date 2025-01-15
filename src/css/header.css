@@ -1,60 +1,135 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 50px;
+  background-color: #fff;
+}
+
+.logo {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin-right: 14px;
+  height: 35px;
+  width: 35px;
+}
+
+.logo h3 {
+  color: #ff8300;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  font-weight: 400;
+  font-size: 17px;
+  margin: 0;
+  margin-right: 100px;
+}
+
+.navLinks li {
+  text-decoration: underline; /* Garis bawah pada teks */
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navLinks li:hover {
+  color: #ff8300; /* Ubah warna saat hover */
+}
+
+.authButtons button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.loginButton {
+  background-color: #ff8300;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Ikon menu burger */
+.menuIcon {
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
     background-color: #fff;
-    padding-left: 50px;
-  }
-  
-  .logo {
-    font-weight: bold;
-    display: flex;
-    align-items: flex-end;
-    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
   }
 
-  .logo img {
-    margin-right: 14px;
-    height: 35px;
-    width: 35px;
-  }
-  
-  .logo h3{
-    color: #ff8300;
-    font-weight: 700;
-    font-size: 24px;
-    height: auto;
-    margin: 0;
+  .nav.open {
+    display: flex;
+    z-index: 20;
   }
 
   .navLinks {
-    display: flex;
-    list-style: none;
-    gap: 20px;
+    flex-direction: column;
     align-items: center;
-    font-weight: 400;
-    font-size: 17px;
+    width: 100%;
     margin: 0;
-    margin-right: 200px;
+    padding: 0;
+    margin-top: 10px;
   }
-  
+
+  .navLinks li {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  .navLinks li {
+    text-decoration: underline; /* Garis bawah pada teks */
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .navLinks li:hover {
+    color: #ff8300; /* Ubah warna saat hover */
+  }
+
+  .authButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .authButtons button {
-    margin-left: 10px;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+    min-width: 200px;
+    margin-left: 0;
   }
-  
-  .registerButton {
-    background-color: white;
-    color: #ffa200;
-    border-radius: 5px;
+
+  .menuIcon {
+    display: block;
   }
-  
-  .loginButton {
-    background-color: #ff8300;
-    color: white;
-    border-radius: 5px;
-  }
-  
+}

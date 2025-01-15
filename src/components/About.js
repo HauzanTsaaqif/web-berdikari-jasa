@@ -37,7 +37,7 @@ const About = () => {
       {/* Section Tentang */}
       <section id="tentang" className="about-content">
         <h2 className="about-title">
-          About <span className="highlight">TENTANG</span>
+          Tentang <span className="highlight">PERUSAHAAN</span>
         </h2>
         <p className="section-text">
         {data ? data['aboutText'] : ""}
@@ -48,7 +48,7 @@ const About = () => {
       <section id="dokumentasi" className="section-content">
         <div className="container">
           <h2 className="about-title">
-            our <span className="highlight">DOKUMENTASI</span>
+            <span className="highlight">DOKUMENTASI</span> Kami
           </h2>
           <div className="image-grid">
             <div className="custom-image-wrapper">
