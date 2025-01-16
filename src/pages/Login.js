@@ -41,6 +41,7 @@ const Login = () => {
             if (passwords[usernameIndex] === password) {
               setAlertMessage("Login berhasil! Selamat datang.");
               setAlertType("success");
+              sessionStorage.setItem('username', usernames);
               setTimeout(() => navigate("/my-profile", { state: { usernameIndex } }), 1000);
             } else {
               setAlertMessage("Password salah. Silakan coba lagi.");

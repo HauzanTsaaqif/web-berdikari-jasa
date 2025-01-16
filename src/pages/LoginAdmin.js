@@ -26,6 +26,8 @@ const LoginAdmin = () => {
         if (userData.password === password) {
           setAlertMessage("Login berhasil! Selamat datang.");
           setAlertType("success");
+          sessionStorage.setItem('username', userData.username);
+
           setTimeout(() => {
             navigate("/dashboard", { state: { username: userData.username } });
           }, 1000);

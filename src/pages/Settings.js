@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../FirebaseConfig';
 import { collection, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, useLocation, useNavigate } from "react-router-dom";
 import "../css/dashboard.css";
 import "../css/settings.css"
 import { uploadImage } from '../UploadImage';
@@ -15,7 +15,25 @@ const Settings = () => {
   const [galleryData, setGalleryData] = useState(webData);
   const [questionData, setQuestionData] = useState(webData);
   const [answerData, setAnswerData] = useState(webData);
+  const [time, setTime] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const username = sessionStorage.getItem('username');
+
+  useEffect(() => {
+    if (username === null) {
+      navigate("/login-admin");
+    }
+  }, [username, navigate]);
   
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -287,36 +305,46 @@ const Settings = () => {
     }
   };
 
+  const changePage = (page) => {
+    navigate(`/${page}`, { state: { username: username } });
+  }
+  const logOut = () => {
+    sessionStorage.removeItem('username');
+    
+    navigate("/", { replace: true });
+  };
+
   return (
     <div className="dashboard">
       <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
         <div className="sidebar-header">
-          <img src="/logo.png" alt="Logo" className="sidebar-logo" />
-          <h2 className="sidebar-company">{formData.companyName}</h2>
+          <img src={formData ? formData.currentLogo : ""} alt="Logo" className="sidebar-logo" />
+          <h2 className="sidebar-company">{formData ? formData.companyName : ""}</h2>
         </div>
         <ul className="sidebar-menu">
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
+          <li onClick={() => changePage('dashboard')}>
+            <i class="fa-solid fa-house-chimney"></i> <p>Dashboard</p>
           </li>
-          <li>
-            <Link to="/account">Account</Link>
+          <li onClick={() => changePage('account')}>
+            <i class="fa-solid fa-user-plus"></i> <p>Account</p>
           </li>
-          <li>
-            <Link to="/settings">Settings</Link>
+          <li onClick={() => changePage('settings')}>
+            <i class="fa-solid fa-gear"></i> <p>Settings</p>
           </li>
         </ul>
-        <button className="sidebar-logout"><Link to="/">Logout</Link></button>
+        <button className="sidebar-logout" onClick={logOut}><i class="fa-solid fa-sign-out-alt"></i><p>Logout</p></button>
       </aside>
 
       <section className="admin-pages">
-        <nav className="navbar">
-          <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
-            ☰
-          </button>
-          <div className="navbar-profile">
-            <img src="/profile.jpg" alt="Profile" className="profile-pic" />
-          </div>
-        </nav>
+      <nav className="navbar">
+        <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+          ☰
+        </button>
+        <span className="navbar-time">{time}</span>
+        <div className="navbar-profile" onClick={() => changePage('my-profile-admin')}>
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+      </nav>
         {webData.length > 0 ? (
           <main className="main-content">
 

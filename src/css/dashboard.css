@@ -43,6 +43,10 @@ h4{
     width: 60px; /* Lebar sidebar saat ditutup */
     overflow: hidden; /* Sembunyikan konten yang melewati lebar */
   }
+
+  .sidebar.closed p {
+    display: none;
+  }
   
   .sidebar-header {
     display: flex;
@@ -72,20 +76,30 @@ h4{
   
   .sidebar-menu li {
     padding: 0.5rem 1rem;
+    display:flex;
   }
   
   .sidebar-menu li a {
+    display: flex !important;
     color: white;
     text-decoration: none;
     font-size: 18px;
-    display: block;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 5px 3px;
+  }
+  .sidebar-menu p{
+    margin-left: 10px;
+    font-size: 16px;
   }
   
-  .sidebar-menu li a:hover {
-    background-color: #444; /* Warna hover */
-    color: #ff8300; /* Warna teks saat hover */
+  .sidebar-menu li:hover {
+    background-color: #444;
+    color: #ff8300;
+  }
+  .sidebar-menu i{
+    margin: 0;
+    font-size: 20px;
   }
   
   .sidebar-logout {
@@ -98,9 +112,18 @@ h4{
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
+  .sidebar-logout i{
+    display: none;
+  }
+  .sidebar.closed .sidebar-logout i{
+    display: flex;
+  }
+  .navbar-profile{
+    font-size: 24px;
+  }
   
   .sidebar-logout:hover {
-    background-color: #d11a1a; /* Warna hover tombol logout */
+    background-color: #ff8300; /* Warna hover tombol logout */
     transform: scale(1.05); /* Efek zoom */
   }
   
@@ -185,3 +208,48 @@ h4{
     background-color: #f4f4f4;
     font-weight: bold;
   }
+  /* Styling for profile section */
+.profile-details {
+  margin: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.profile-details div {
+  margin-bottom: 1rem;
+}
+
+.profile-details input {
+  padding: 0.5rem;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.profile-details button {
+  background-color: #ff8300;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.profile-details button:hover {
+  background-color: #e77f00;
+}
+
+.back-to-dashboard button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.back-to-dashboard button:hover {
+  background-color: #45a049;
+}

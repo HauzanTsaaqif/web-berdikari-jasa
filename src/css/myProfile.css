@@ -30,6 +30,7 @@
   margin-bottom: 30px;
 }
 
+/* Detail Profil */
 .profile-details {
   text-align: left;
 }
@@ -69,9 +70,10 @@
   line-height: 1.6;
 }
 
-.attendance-button {
-  display: block;
-  margin: 0 auto;
+/* Button (Absensi & Leave) */
+.button {
+  display: flex;
+  justify-content: center;
   background-color: #ff8300;
   color: white;
   border: none;
@@ -81,9 +83,10 @@
   font-size: 1rem;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
 }
 
-.attendance-button:hover {
+.button:hover {
   background-color: #e67300;
   transform: scale(1.05);
 }
@@ -109,10 +112,92 @@
   border: 1px solid #f5c6cb;
 }
 
+/* Leave Request Section */
+.leave-request-section {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.leave-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Leave Form */
+.leave-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.leave-form label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.leave-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  min-height: 80px;
+  color: #333;
+}
+
+/* Tombol di Form Cuti */
+.leave-submit, .leave-cancel, .attendance-button, .leave-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  width: 48%;
+}
+
+.leave-submit, .attendance-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.leave-submit:hover, .attendance-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.leave-cancel, .leave-button{
+  background-color: #f44336;
+  color: white;
+}
+
+.leave-cancel:hover, .leave-button:hover {
+  background-color: #e41d1d;
+  transform: scale(1.05);
+}
+
 /* Responsif */
 @media (max-width: 768px) {
+  /* Card Profil & Absensi */
   .profile-card,
-  .attendance-section {
+  .attendance-section,
+  .leave-request-section {
     width: 90%; /* Lebar lebih kecil untuk layar mobile */
   }
 
@@ -124,8 +209,14 @@
     font-size: 1.5rem;
   }
 
-  .attendance-button {
-    font-size: 0.9rem;
-    padding: 10px;
+  .leave-title {
+    font-size: 1.6rem;
+  }
+
+  /* Tombol Form Cuti */
+  .leave-submit, .leave-cancel {
+    font-size: 14px;
+    padding: 8px 16px;
   }
 }
+

@@ -7,6 +7,7 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import MyProfile from "./pages/MyProfile";
 import LoginAdmin from "./pages/LoginAdmin";
+import MyProfileAdmin from "./pages/MyProfileAdmin";
 
 import React, { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig';
@@ -65,6 +66,7 @@ function AnimatedRoutes() {
       <Route path="/login" element={<Login/>} />
       <Route path="/my-profile" element={<MyProfile/>} />
       <Route path="/login-admin" element={<LoginAdmin/>} />
+      <Route path="/my-profile-admin" element={<MyProfileAdmin/>} />
     </Routes>
   );
 }

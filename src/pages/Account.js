@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { db } from '../FirebaseConfig'; // import konfigurasi Firebase
 import { collection, doc, getDocs, setDoc, updateDoc, Timestamp, getDoc, deleteField } from 'firebase/firestore';
-import { BrowserRouter as Router, Link, data } from "react-router-dom";
+import { BrowserRouter as Router, Link, data, useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../css/dashboard.css";
 import "../css/account.css";
@@ -20,6 +20,17 @@ const Account = () => {
     password: "",
   };
   const [accountData, setAccountData] = useState(initialData);
+
+  const location = useLocation();
+    const navigate = useNavigate();
+  
+    const username = sessionStorage.getItem('username');
+  
+    useEffect(() => {
+        if (username === null) {
+          navigate("/login-admin");
+        }
+      }, [username, navigate]);
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -270,6 +281,15 @@ const Account = () => {
     }
   };
 
+  const changePage = (page) => {
+    navigate(`/${page}`, { state: { username: username } });
+  }
+  const logOut = () => {
+    sessionStorage.removeItem('username');
+    
+    navigate("/", { replace: true });
+  };
+
   return (
     <>
       <div className="dashboard">
@@ -279,17 +299,17 @@ const Account = () => {
             <h2 className="sidebar-company">{infoWeb ? infoWeb.companyName : ""}</h2>
           </div>
           <ul className="sidebar-menu">
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
+            <li onClick={() => changePage('dashboard')}>
+              <i class="fa-solid fa-house-chimney"></i> <p>Dashboard</p>
             </li>
-            <li>
-              <Link to="/account">Account</Link>
+            <li onClick={() => changePage('account')}>
+              <i class="fa-solid fa-user-plus"></i> <p>Account</p>
             </li>
-            <li>
-              <Link to="/settings">Settings</Link>
+            <li onClick={() => changePage('settings')}>
+              <i class="fa-solid fa-gear"></i> <p>Settings</p>
             </li>
           </ul>
-          <button className="sidebar-logout" ><Link to="/">Logout</Link></button>
+          <button className="sidebar-logout" onClick={logOut}><i class="fa-solid fa-sign-out-alt"></i><p>Logout</p></button>
         </aside>
 
         <section className="admin-pages">
@@ -298,8 +318,8 @@ const Account = () => {
               ☰
             </button>
             <span className="navbar-time">{time}</span>
-            <div className="navbar-profile">
-              <img src="/profile.jpg" alt="Profile" className="profile-pic" />
+            <div className="navbar-profile" onClick={() => changePage('my-profile-admin')}>
+              <i class="fa-solid fa-id-card"></i>
             </div>
           </nav>
 
